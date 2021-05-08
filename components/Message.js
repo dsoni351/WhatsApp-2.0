@@ -26,11 +26,14 @@ const Container = styled.div``;
 
 const MessageElement = styled.p`
   width: fit-content;
-  padding: 15px;
+  /* padding: 15px; */
   border-radius: 8px;
   margin: 10px;
   min-width: 60px;
-  padding-bottom: 36px;
+    padding-bottom: 9px;
+    padding-top: 3px;
+    padding-right: 48px;
+    padding-left: 15px;
   position: relative;
   text-align: right;
 `;
@@ -47,10 +50,10 @@ const Receiver = styled(MessageElement)`
 
 const Timestamp = styled.span`
   color: grey;
-  padding: 10px;
+  padding: 0px;
   font-size: 9px;
   position: absolute;
-  bottom: 0;
+  bottom: 5px;
   text-align: right;
-  right: 0;
+  right: 5px;
 `;

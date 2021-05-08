@@ -5,8 +5,7 @@ import Login from './login';
 import Loading from '../components/Loading';
 import firebase from 'firebase';
 import {useEffect} from 'react';
-
-
+import styled from 'styled-components';
 
 
 
@@ -17,7 +16,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     if(user) {
       db.collection('users').doc(user.uid).set({
-        // name: user.name,
+        // name: "",
         email: user.email,
         lastSeen: firebase.firestore.FieldValue.serverTimestamp(),
         photoURL: user.photoURL
@@ -31,7 +30,28 @@ function MyApp({ Component, pageProps }) {
 
   if(!user) return <Login />
   
-  return <Component {...pageProps} />
+  return (
+    <Container>
+      <WhatsAppWindow>
+      <Component {...pageProps} />
+      </WhatsAppWindow>
+    </Container>
+       
+  )
 }
 
 export default MyApp
+
+const Container = styled.div`
+
+`;
+
+const WhatsAppWindow = styled.div`
+    position: absolute;
+    top: 27px;
+    left: 107px;
+    height: 92vh;
+    width: 85vw;
+    border-radius: 5px;
+    box-shadow: 0px 4px 14px -3px rgba(0, 0, 0,0.7);
+`;

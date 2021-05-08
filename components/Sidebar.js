@@ -23,8 +23,8 @@ function Sidebar() {
     const [chatsSnapshot] = useCollection(userChatRef);
 
     const createChat = () => {
-        const input = prompt('Please enter a email address for the user you wish to chat with.');
-        
+        const input = prompt('Please enter a email address for the user you wish to chat with: ');
+        // const name = prompt('What is the name of user you wish to chat with: ');
         if(!input) return null;
         
         if(EmailValidator.validate(input) && input !== user.email && !chatAlreadyExists(input) ) {
@@ -94,7 +94,7 @@ const Search = styled.div`
 const Container = styled.div`
 flex: 0.45;
 border-right: 1px solid whitesmoke;
-height: 100vh;
+height: 92vh;
 min-width: 300px;
 max-width: 350px;
 overflow-y: scroll;

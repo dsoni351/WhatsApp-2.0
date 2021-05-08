@@ -69,7 +69,7 @@ display: flex;
 const ChatContainer = styled.div`
 flex: 1;
     overflow: scroll;
-    height: 100vh;
+    height: 92vh;
 
     ::-webkit-scrollbar {
         display: none;

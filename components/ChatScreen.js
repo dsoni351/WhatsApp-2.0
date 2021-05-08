@@ -133,7 +133,7 @@ function ChatScreen({chat, messages}) {
 export default ChatScreen;
 
 const Container = styled.div`
-   
+   height: 92vh;
 `;
 
 const Input = styled.input`
@@ -157,7 +157,9 @@ z-index: 100;
 `;
 
 const Header = styled.div`
-position: sticky;
+position: absolute;
+width: 955px;
+height: 79px;
 background-color: white;
 z-index: 100;
 top: 0;
@@ -186,11 +188,12 @@ const HeaderIcons = styled.div`
 `;
 
 const EndOfMessage = styled.div`
-margin-bottom: 0px;
+margin-top: -27px;
 `;
 
 const MessageContainer = styled.div`
 padding: 30px;
+padding-top: 83px;
 background-color: #e5ded8;
 min-height: 90vh;
 `;
