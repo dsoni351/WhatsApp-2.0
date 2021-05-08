@@ -32,9 +32,12 @@ function MyApp({ Component, pageProps }) {
   
   return (
     <Container>
+      <Top></Top>
       <WhatsAppWindow>
       <Component {...pageProps} />
       </WhatsAppWindow>
+     
+      
     </Container>
        
   )
@@ -42,8 +45,20 @@ function MyApp({ Component, pageProps }) {
 
 export default MyApp
 
-const Container = styled.div`
+const Top = styled.div`
+  
+  background-color: #4A4B6F;
+  width: 100%;
+  height: 21%;
 
+`;
+
+const Container = styled.div`
+display: grid;
+place-items: centre; 
+height: 100vh;
+
+  
 `;
 
 const WhatsAppWindow = styled.div`
@@ -53,5 +68,7 @@ const WhatsAppWindow = styled.div`
     height: 92vh;
     width: 85vw;
     border-radius: 5px;
+    /* color: #4a4a4a; */
     box-shadow: 0px 4px 14px -3px rgba(0, 0, 0,0.7);
+    background-color: white;
 `;

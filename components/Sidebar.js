@@ -41,6 +41,7 @@ function Sidebar() {
 
   return (
     <Container>
+      <Top>
       <Header> 
         <UserAvatar src= {user.photoURL} onClick = {() => auth.signOut()}></UserAvatar>
         <IconsContainer>
@@ -52,28 +53,44 @@ function Sidebar() {
           </IconButton>
         </IconsContainer>
       </Header>
-
       <Search>
         <SearchIcon></SearchIcon>
         <SearchInput placeholder="Search in chats"></SearchInput>
       </Search>
 
       <SidebarButton onClick = {createChat}>Start a new chat</SidebarButton>
+      </Top>
+     
+
+      
 
       
       {chatsSnapshot?.docs.map((chat) => (<Chat key= {chat.id} id={chat.id} users = {chat.data().users} />))
       }
+
     </Container>
   );
 }
 
 export default Sidebar;
 
+const Top = styled.div`
+display: flex;
+flex-direction: column;
+position: sticky;
+  top: 0;
+  z-index: 1;
+`;
+
 const SidebarButton = styled(Button)`
   width: 100%;
+  
+  /* position: sticky;
+  top: 0; */
   &&&{
     border-top: 1px solid whitesmoke;
   border-bottom: 1px solid whitesmoke;
+  background-color: white;
   }
   
 `;
@@ -85,10 +102,13 @@ const SearchInput = styled.input`
 `;
 
 const Search = styled.div`
+/* position: sticky;
+  top: 0; */
   display: flex;
   align-items: center;
   padding: 5px;
   border-radius: 2px;
+  background-color: white;
 `;
 
 const Container = styled.div`
@@ -97,6 +117,7 @@ border-right: 1px solid whitesmoke;
 height: 92vh;
 min-width: 300px;
 max-width: 350px;
+/* z-index: -1; */
 overflow-y: scroll;
 
 ::-webkit-scrollbar {
@@ -110,10 +131,9 @@ scrollbar-width: none;
 
 const Header = styled.div`
   display: flex;
-  position: sticky;
-  top: 0;
+  
   background-color: white;
-  z-index: 1;
+  
   justify-content: space-between;
   align-items: center;
   padding: 15px;
