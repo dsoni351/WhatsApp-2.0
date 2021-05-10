@@ -24,7 +24,8 @@ function Chat({id, users}) {
 
     const recipient = recipientSnapshot?.docs?.[0]?.data();
 
-    const recipientEmail = getRecipientEmail(users, user);   
+    const recipientEmail = getRecipientEmail(users, user);
+       
 
     return (
         <Container onClick= {enterChat}>
@@ -33,8 +34,13 @@ function Chat({id, users}) {
         ): (
             <UserAvatar> {recipientEmail[0]}</UserAvatar>
         )}
-       
+        {recipient ? (
+            <p> {recipient?.name}</p>
+        ): (
             <p> {recipientEmail}</p>
+        )}
+       
+            
         </Container>
     );
 }
