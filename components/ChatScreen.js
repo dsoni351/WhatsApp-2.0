@@ -13,6 +13,10 @@ import firebase from "firebase";
 import Message from "./Message";
 import getRecipientEmail from "../utils/getRecipientEmail";
 import TimeAgo from "timeago-react";
+import SendIcon from '@material-ui/icons/Send';
+
+
+
 
 function ChatScreen({ chat, messages }) {
   const endOfMessagesRef = useRef(null);
@@ -82,6 +86,13 @@ function ChatScreen({ chat, messages }) {
     scrollToBottom();
   };
 
+  const handleKeypress = (e) => {
+    // console.log(e.keyCode);
+  if (e.keyCode === 13) {
+    sendMessage;
+  }
+};
+
   const recipient = recipientSnapshot?.docs?.[0]?.data();
 
   const recipientEmail = getRecipientEmail(chat.users, user);
@@ -126,21 +137,41 @@ function ChatScreen({ chat, messages }) {
       </MessageContainer>
 
       <InputContainer>
-        <InsertEmoticonIcon></InsertEmoticonIcon>
-        <Input value={input} onChange={(e) => setInput(e.target.value)} />
-        <button hidden disabled={!input} type="submit" onClick={sendMessage}>
-          Send Message
-        </button>
-        <MicIcon style={{ margin: "10px" }}></MicIcon>
+
+      <IconButton>
+      <InsertEmoticonIcon></InsertEmoticonIcon>
+          </IconButton>
+
+        
+        <Input value={input} onChange={(e) => setInput(e.target.value) } onKeyPress={handleKeypress} />
+        {input ? (
+       <IconButton onClick={sendMessage} type='submit' >
+       <SendIcon style={{ margin: "5px" }} />
+          </IconButton> 
+       ) : (
+       <IconButton>
+        <MicIcon style={{ margin: "5px" }}></MicIcon>
+          </IconButton> )
+         }
+        
       </InputContainer>
     </Container>
   );
 }
 
-export default ChatScreen;
+export default ChatScreen
+
+
 
 const Container = styled.div`
-  height: 92vh;
+  height: 91vh;
+  overflow: scroll;
+  ::-webkit-scrollbar {
+  display: none;
+}
+
+-ms-overflow-style: none;
+scrollbar-width: none;
 `;
 
 const Input = styled.input`
@@ -164,9 +195,9 @@ const InputContainer = styled.form`
 `;
 
 const Header = styled.div`
-  position: absolute;
-  width: 955px;
-  height: 79px;
+  position: sticky;
+    width: 100%;
+    height: 79.5px;
   background-color: white;
   z-index: 100;
   top: 0;
@@ -193,12 +224,12 @@ const HeaderInformation = styled.div`
 const HeaderIcons = styled.div``;
 
 const EndOfMessage = styled.div`
-  margin-top: -27px;
+  margin-top: -17px;
 `;
 
 const MessageContainer = styled.div`
   padding: 30px;
-  padding-top: 83px;
+  padding-top: 10px;
   background-color: #e5ded8;
-  min-height: 90vh;
+  min-height: 80vh;
 `;

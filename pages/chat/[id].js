@@ -63,13 +63,14 @@ export async function getServerSideProps(context) {
 
 const Container = styled.div`
 display: flex;
+width: 100%;
 
 `;
 
 const ChatContainer = styled.div`
-flex: 1;
+flex: 74%;
     overflow: scroll;
-    height: 92vh;
+    height: 91vh;
 
     ::-webkit-scrollbar {
         display: none;

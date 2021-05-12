@@ -34,16 +34,19 @@ export default function Home() {
 
 const Container= styled.div`
 display: flex;
-
+position: absolute;
+    width: 100%;
 `;
 
 const Default = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #f8f9fa;
-  width: 100%;
+position: relative; 
+    display: flex;
+    flex: 74%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+     /* width: 100%; */
 `;
 
 const WhatsappWeb= styled.div`

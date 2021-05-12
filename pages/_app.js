@@ -32,13 +32,15 @@ function MyApp({ Component, pageProps }) {
   
   return (
     <Container>
-      <Top></Top>
+      <Top>
+
+      </Top>
       <WhatsAppWindow>
       <Component {...pageProps} />
       </WhatsAppWindow>
      
       
-    </Container>
+    </Container> 
        
   )
 }
@@ -46,29 +48,38 @@ function MyApp({ Component, pageProps }) {
 export default MyApp
 
 const Top = styled.div`
+ position: absolute;
+ top: 0;
   
   background-color: #4A4B6F;
   width: 100%;
-  height: 21%;
+  height: 20%;
 
 `;
 
 const Container = styled.div`
-display: grid;
-place-items: centre; 
-height: 100vh;
+display: flex;
 
+/* place-items: centre;  */
+position: relative;
+height: 100vh;
+width: 100vw;
+  background-color: #dddbd1;
+  background-image: linear-gradient(180deg, #dddcdf, #d2dbdc);
   
 `;
 
 const WhatsAppWindow = styled.div`
-    position: absolute;
-    top: 27px;
-    left: 107px;
-    height: 92vh;
-    width: 85vw;
+    position: relative;
+    /* display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox; */
+    display: flex;
+    top: 5vh;
+    left: 8vw;
+    height: 91vh;
+    width: 84vw;
     border-radius: 5px;
-    /* color: #4a4a4a; */
-    box-shadow: 0px 4px 14px -3px rgba(0, 0, 0,0.7);
+    box-shadow: 0px 4px 14px -3px rgb(0 0 0 / 70%);
     background-color: white;
 `;
